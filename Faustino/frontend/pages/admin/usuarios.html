@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Usuarios - Faustino</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="/css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <app-navbar></app-navbar>
+
+    <div class="container mt-4">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Gestión de Usuarios</h1>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-primary" id="btnExportar">
+            <i class="bi bi-download"></i> Exportar Datos
+          </button>
+        </div>
+      </div>
+
+      <!-- Alertas -->
+      <div id="alertContainer"></div>
+
+      <!-- Filtros -->
+      <div class="row mb-4">
+        <div class="col-md-4">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              id="buscarUsuario"
+              placeholder="Buscar usuario..."
+            />
+            <button class="btn btn-outline-secondary" type="button" id="btnBuscar">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" id="filtroPedidos">
+            <option value="">Todos los usuarios</option>
+            <option value="frecuentes">Clientes frecuentes</option>
+            <option value="recientes">Clientes recientes</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" id="ordenarPor">
+            <option value="nombre">Ordenar por nombre</option>
+            <option value="fecha">Ordenar por fecha</option>
+            <option value="pedidos">Ordenar por pedidos</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Tabla de Usuarios -->
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Email</th>
+                  <th>Teléfono</th>
+                  <th>Fecha de Registro</th>
+                  <th>Total Pedidos</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="tablaUsuarios">
+                <!-- Los usuarios se cargarán dinámicamente aquí -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Detalle de Usuario -->
+    <div class="modal fade" id="modalUsuario" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Detalle de Usuario</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <!-- Datos Personales -->
+              <div class="col-md-6">
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h6 class="mb-0">Datos Personales</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-2">
+                      <strong>Nombre:</strong>
+                      <span id="detalleNombre"></span>
+                    </div>
+                    <div class="mb-2">
+                      <strong>Email:</strong>
+                      <span id="detalleEmail"></span>
+                    </div>
+                    <div class="mb-2">
+                      <strong>Teléfono:</strong>
+                      <span id="detalleTelefono"></span>
+                    </div>
+                    <div class="mb-2">
+                      <strong>Fecha de Registro:</strong>
+                      <span id="detalleFechaRegistro"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Estadísticas -->
+              <div class="col-md-6">
+                <div class="card mb-3">
+                  <div class="card-header">
+                    <h6 class="mb-0">Estadísticas</h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="mb-2">
+                      <strong>Total Pedidos:</strong>
+                      <span id="detalleTotalPedidos"></span>
+                    </div>
+                    <div class="mb-2">
+                      <strong>Total Gastado:</strong>
+                      <span id="detalleTotalGastado"></span>
+                    </div>
+                    <div class="mb-2">
+                      <strong>Último Pedido:</strong>
+                      <span id="detalleUltimoPedido"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Historial de Pedidos -->
+            <div class="card">
+              <div class="card-header">
+                <h6 class="mb-0">Historial de Pedidos</h6>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-sm">
+                    <thead>
+                      <tr>
+                        <th>Número</th>
+                        <th>Fecha</th>
+                        <th>Total</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody id="historialPedidos">
+                      <!-- El historial se cargará dinámicamente -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/js/auth.js"></script>
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="/js/admin/usuarios.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
