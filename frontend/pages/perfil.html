@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faustino - Mi Perfil</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="../css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Navbar Component -->
+    <app-navbar></app-navbar>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="mb-0">Mi Perfil</h4>
+            </div>
+            <div class="card-body">
+              <form id="profileForm">
+                <div class="mb-3">
+                  <label for="nombre" class="form-label">Nombre Completo</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="nombre"
+                    required
+                    disabled
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label"
+                    >Correo Electrónico</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    required
+                    disabled
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="telefono" class="form-label">Teléfono</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="telefono"
+                    disabled
+                  />
+                </div>
+                <hr />
+                <h5 class="mb-3">Cambiar Contraseña</h5>
+                <div class="mb-3">
+                  <label for="currentPassword" class="form-label"
+                    >Contraseña Actual</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="currentPassword"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="newPassword" class="form-label"
+                    >Nueva Contraseña</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="newPassword"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="confirmPassword" class="form-label"
+                    >Confirmar Nueva Contraseña</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="confirmPassword"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Actualizar Contraseña
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script type="module" src="../components/navbar.js"></script>
+    <script type="module" src="../js/perfil.js"></script>
+  </body>
+</html>

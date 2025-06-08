@@ -1,0 +1,287 @@
+/* Estilos generales */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f9fa;
+}
+
+main {
+    flex: 1;
+}
+
+/* Estilos de la navbar */
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* Estilos de las tarjetas de productos */
+.card {
+    transition: transform 0.2s;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Estilos del footer */
+footer {
+    margin-top: auto;
+}
+
+/* Estilos para formularios */
+.form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Estilos para la página de productos */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+}
+
+/* Estilos para el carrito */
+.cart-item {
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+/* Estilos para los estados de pedidos */
+.badge-pendiente {
+    background-color: #ffc107;
+}
+
+.badge-confirmado {
+    background-color: #17a2b8;
+}
+
+.badge-preparacion {
+    background-color: #007bff;
+}
+
+.badge-listo {
+    background-color: #28a745;
+}
+
+.badge-entregado {
+    background-color: #6c757d;
+}
+
+/* Estilos para el perfil de usuario */
+.profile-section {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilos para los reportes */
+.report-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Estilos para las promociones */
+.promotion-banner {
+    background-color: #dc3545;
+    color: white;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Estilos para mensajes de alerta */
+.alert {
+    margin-bottom: 1rem;
+}
+
+/* Estilos para botones de acción */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Estilos para tablas */
+.table-responsive {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Estilos para filtros */
+.filter-section {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+}
+
+/* Estilos para la paginación */
+.pagination {
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+/* Estilos para los botones de acción */
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-danger:hover {
+    color: white;
+}
+
+/* Estilos para el modal */
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Estilos para los filtros */
+.form-control:focus,
+.form-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
+}
+
+/* Estilos para la previsualización de imágenes */
+#previewImagen img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Estilos para los badges de estado */
+.badge {
+    padding: 0.5em 0.75em;
+    font-weight: 500;
+}
+
+/* Estilos para las alertas */
+.alert {
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para el contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Estilos para los inputs de precio */
+.input-group-text {
+    background-color: #f8f9fa;
+    border-right: none;
+}
+
+.input-group .form-control {
+    border-left: none;
+}
+
+/* Estilos para la imagen en la tabla */
+.img-thumbnail {
+    border-radius: 4px;
+    transition: transform 0.2s;
+}
+
+.img-thumbnail:hover {
+    transform: scale(1.1);
+}
+
+/* Estilos para el botón de agregar producto */
+#btnAgregarProducto {
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+}
+
+#btnAgregarProducto i {
+    margin-right: 0.5rem;
+}
+
+/* Estilos para el formulario */
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.form-control,
+.form-select {
+    border-radius: 4px;
+}
+
+/* Estilos para los mensajes de validación */
+.invalid-feedback {
+    font-size: 0.875rem;
+}
+
+/* Estilos para el botón de búsqueda */
+#btnBuscar {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/* Estilos para el contenedor de filtros */
+.row.mb-4 {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem !important;
+}
+
+/* Estilos para el hero section */
+.hero-section {
+    background-color: #f8f9fa;
+    padding: 4rem 0;
+}
+
+.hero-section h1,
+.hero-section p {
+    color: #000;
+} 

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faustino - Historial</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="../css/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Navbar Component -->
+    <app-navbar></app-navbar>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+      <h2 class="mb-4">Historial de Pedidos</h2>
+
+      <!-- Filters -->
+      <div class="row mb-4">
+        <div class="col-md-4">
+          <select class="form-select" id="statusFilter">
+            <option value="">Todos los estados</option>
+            <option value="pendiente">Pendiente</option>
+            <option value="confirmado">Confirmado</option>
+            <option value="en_preparacion">En Preparación</option>
+            <option value="enviado">Enviado</option>
+            <option value="entregado">Entregado</option>
+            <option value="cancelado">Cancelado</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <input
+            type="date"
+            class="form-control"
+            id="dateFilter"
+            placeholder="Filtrar por fecha"
+          />
+        </div>
+        <div class="col-md-4">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              id="searchInput"
+              placeholder="Buscar pedido..."
+            />
+            <button class="btn btn-primary" type="button" id="searchButton">
+              <i class="bi bi-search"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orders List -->
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Fecha</th>
+              <th>Total</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="ordersList">
+            <!-- Orders will be loaded here dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <nav aria-label="Orders navigation">
+        <ul class="pagination justify-content-center" id="pagination">
+          <!-- Pagination will be loaded here dynamically -->
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Order Detail Modal -->
+    <div class="modal fade" id="orderModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Detalles del Pedido</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="row mb-4">
+              <div class="col-md-6">
+                <h6>Información del Pedido</h6>
+                <p class="mb-1">
+                  <strong>ID:</strong> <span id="orderId"></span>
+                </p>
+                <p class="mb-1">
+                  <strong>Fecha:</strong> <span id="orderDate"></span>
+                </p>
+                <p class="mb-1">
+                  <strong>Estado:</strong> <span id="orderStatus"></span>
+                </p>
+              </div>
+            </div>
+
+            <h6>Productos</h6>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Subtotal</th>
+                  </tr>
+                </thead>
+                <tbody id="orderItems">
+                  <!-- Order items will be loaded here dynamically -->
+                </tbody>
+              </table>
+            </div>
+
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <h6>Notas del Pedido</h6>
+                <p id="orderNotes" class="text-muted"></p>
+              </div>
+              <div class="col-md-6 text-md-end">
+                <h6>Resumen</h6>
+                <p class="mb-1">
+                  <strong>Subtotal:</strong> <span id="orderSubtotal"></span>
+                </p>
+                <p class="mb-1">
+                  <strong>Envío:</strong> <span id="orderShipping"></span>
+                </p>
+                <p class="mb-1">
+                  <strong>Total:</strong> <span id="orderTotal"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="downloadReceiptBtn"
+            >
+              Descargar Recibo
+            </button>
+            <button type="button" class="btn btn-success" id="repeatOrderBtn">
+              Repetir Pedido
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script type="module" src="../components/navbar.js"></script>
+    <script type="module" src="../js/historial.js"></script>
+  </body>
+</html>

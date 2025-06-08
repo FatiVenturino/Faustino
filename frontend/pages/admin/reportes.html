@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes de Ventas - FATI</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+    <!-- Navbar Component -->
+    <app-navbar></app-navbar>
+
+    <div class="container mt-4">
+        <h2 class="mb-4">Reportes de Ventas</h2>
+
+        <!-- Filtros -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label for="categoria" class="form-label">Categoría</label>
+                        <select class="form-select" id="categoria">
+                            <option value="">Todas las categorías</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="producto" class="form-label">Producto</label>
+                        <select class="form-select" id="producto">
+                            <option value="">Todos los productos</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <button class="btn btn-primary" id="btnFiltrar">
+                            <i class="bi bi-search"></i> Filtrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resumen de Ventas -->
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="card bg-primary text-white text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Ventas Global</h5>
+                        <h3 class="card-text" id="totalVentasGlobal">$0,00</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs para diferentes vistas -->
+        <ul class="nav nav-tabs mb-4" id="reportesTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="productos-tab" data-bs-toggle="tab" data-bs-target="#productos" type="button" role="tab">
+                    Ventas por Producto
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="categorias-tab" data-bs-toggle="tab" data-bs-target="#categorias" type="button" role="tab">
+                    Ventas por Categoría
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="temporal-tab" data-bs-toggle="tab" data-bs-target="#temporal" type="button" role="tab">
+                    Ventas por Período
+                </button>
+            </li>
+        </ul>
+
+        <!-- Contenido de las tabs -->
+        <div class="tab-content" id="reportesTabsContent">
+            <!-- Tab Ventas por Producto -->
+            <div class="tab-pane fade show active" id="productos" role="tabpanel">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="tablaProductos">
+                                <thead>
+                                    <tr>
+                                        <th>Producto</th>
+                                        <th>Categoría</th>
+                                        <th>Cantidad Vendida</th>
+                                        <th>Total Facturado</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Ventas por Categoría -->
+            <div class="tab-pane fade" id="categorias" role="tabpanel">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="tablaCategorias">
+                                <thead>
+                                    <tr>
+                                        <th>Categoría</th>
+                                        <th>Cantidad de Productos</th>
+                                        <th>Total Vendido</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Ventas por Período -->
+            <div class="tab-pane fade" id="temporal" role="tabpanel">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <select class="form-select" id="periodoSelect">
+                                    <option value="diario">Ventas Diarias</option>
+                                    <option value="semanal">Ventas Semanales</option>
+                                    <option value="mensual">Ventas Mensuales</option>
+                                    <option value="anual">Ventas Anuales</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="tablaTemporal">
+                                <thead>
+                                    <tr>
+                                        <th>Período</th>
+                                        <th>Cantidad de Pedidos</th>
+                                        <th>Total Vendido</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Scripts -->
+    <script type="module" src="/components/navbar.js"></script>
+    <script type="module" src="../../js/admin/reportes.js"></script>
+</body>
+</html> 
